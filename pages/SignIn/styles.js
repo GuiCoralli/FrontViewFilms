@@ -44,8 +44,8 @@ export const Form = styled.div`
 `;
 
 
-export const Background = styled.div`
+export const background = styled.div`
     flex: 1; //Ocupa todo o espaço disponível
-    background: url(${backgroundImg}) no-repeat center center;
+    background: url (${backgroundImg}) no-repeat center center;
     background-size: cover;
 `;

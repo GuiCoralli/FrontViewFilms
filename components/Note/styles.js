@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styled from 'styled-components';
 
 export const Container = styled.button`
@@ -23,4 +24,31 @@ export const Container = styled.button`
         display: flex;
         margin-top: 24px;
     }
+=======
+import styled from 'styled-components';
+
+export const Container = styled.button`
+    width: 100%;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+
+    border:none;
+    border-radius: 10px;
+
+    padding: 22px;
+    margin-bottom: 16px;
+
+    > h1 {
+        flex: 1;
+        text-align: left;
+        font-weight: 7000;
+        font-size:24px;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+    }
+
+    >footer {
+        width: 100%;
+        display: flex;
+        margin-top: 24px;
+    }
+>>>>>>> f707860f216b5e0c4ff5a3b339bc02f6fb8ce508
 `;
