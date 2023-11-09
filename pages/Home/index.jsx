@@ -1,108 +1,62 @@
-<<<<<<< HEAD
-import { FiPlus, FiSearch } from 'react-icons/fi';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FiPlus } from "react-icons/fi";
+import { Container, Content, NewMovie } from "./styles";
 
-import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
+import { api } from "../../services/api";
 
-import {Note} from '../../components/Note';
-import {Input} from '../../components/Input';
-import {Header} from '../../components/Header';
-import {Section} from '../../components/Section';
-import {ButtonText} from '../../components/ButtonText';
-
-export function Home() {
-    return (
-        <Container>
-            <Brand>
-                <h1> Rocket_Notes </h1>
-            </Brand>
-
-            <Header />
-
-            <Menu>
-              <li><ButtonText title="Todos" $isactive /></li>
-              <li><ButtonText title="React"/></li>
-              <li><ButtonText title="Nodejs"/></li>
-            </Menu>
-
-            <Search>
-                <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
-            </Search>
-
-            <Content>
-                <Section title="Minhas notas">
-                    <Note data={{
-                        title: 'React',
-                        tags: [
-                            {id: '1', name:'react'},
-                            {id: '2', name:'rocketseat'},
-                        ]
-                    }}
-                    />
-
-                </Section>
-                
-
-            </Content>
-
-            <NewNote>
-                <FiPlus />
-                Criar Nota
-            </NewNote>
-
-        </Container>
-    );
-=======
-import { FiPlus, FiSearch } from 'react-icons/fi';
-
-import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
-
-import {Note} from '../../components/Note';
-import {Input} from '../../components/Input';
-import {Header} from '../../components/Header';
-import {Section} from '../../components/Section';
-import {ButtonText} from '../../components/ButtonText';
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
+import { Movie } from "../../components/Movie";
 
 export function Home() {
-    return (
-        <Container>
-            <Brand>
-                <h1> Rocket_Notes </h1>
-            </Brand>
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
-            <Header />
+  const navigate = useNavigate();
 
-            <Menu>
-              <li><ButtonText title="Todos" $isactive /></li>
-              <li><ButtonText title="React"/></li>
-              <li><ButtonText title="Nodejs"/></li>
-            </Menu>
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
 
-            <Search>
-                <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
-            </Search>
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/notes?title=${search}`);
+      setMovies(response.data);
+    }
 
-            <Content>
-                <Section title="Minhas notas">
-                    <Note data={{
-                        title: 'React',
-                        tags: [
-                            {id: '1', name:'react'},
-                            {id: '2', name:'rocketseat'},
-                        ]
-                    }}
-                    />
+    fetchMovies();
+  }, [search]);
 
-                </Section>
-                
+  return (
+    <Container>
+      <Header>
+        <Input
+          placeholder="Pesquisar pelo título"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </Header>
 
-            </Content>
+      <main>
+        <header>
+          <h1>Meus filmes</h1>
 
-            <NewNote>
-                <FiPlus />
-                Criar Nota
-            </NewNote>
+          <NewMovie to="/new">
+            <FiPlus />
+            Adicionar filme
+          </NewMovie>
+        </header>
 
-        </Container>
-    );
->>>>>>> f707860f216b5e0c4ff5a3b339bc02f6fb8ce508
+        <Content>
+          {movies.map((movie) => (
+            <Movie
+              key={String(movie.id)}
+              data={movie}
+              onClick={() => handleDetails(movie.id)}
+            />
+          ))}
+        </Content>
+      </main>
+    </Container>
+  );
 }

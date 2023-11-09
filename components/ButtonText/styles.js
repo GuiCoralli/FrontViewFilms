@@ -1,22 +1,15 @@
-<<<<<<< HEAD
 import styled from "styled-components";
 
 export const Container = styled.button`
-    background: none;
-    color: ${({ theme, $isactive }) => $isactive ?
-     theme.COLORS.ORANGE : theme.COLORS.GRAY_100};
+  background: none;
+  border: none;
 
-    border: none;
-    font-size: 16px;
-=======
-import styled from "styled-components";
+  font-size: 1.6rem;
+  color: ${({ theme }) => theme.COLORS.SALMON};
 
-export const Container = styled.button`
-    background: none;
-    color: ${({ theme, $isactive }) => $isactive ?
-     theme.COLORS.ORANGE : theme.COLORS.GRAY_100};
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-    border: none;
-    font-size: 16px;
->>>>>>> f707860f216b5e0c4ff5a3b339bc02f6fb8ce508
+  margin-bottom: 2.4rem;
 `;

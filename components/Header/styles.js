@@ -1,58 +1,75 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
-    grid-area: header;
+  grid-area: header;
 
-    height: 105px;
-    width: 100%;
+  height: 11.6rem;
+  width: 100%;
 
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    padding: 0 80px;
+  padding: 0 12.3rem;
+
+  position: relative;
 `;
 
-export const Profile = styled.div`
+export const Brand = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
 
-    /*a tag (>) vai me permitir estilizar e trabalhar apenas na img do peril do usuário*/
-    > img {
-        width:56px;
-        height:56px;
-        border-radius: 50%;
-    }
-     /*a tag (>) vai me permitir trabalhar apenas na div de (textos) do peril do usuário, 
-      ficando um abaixo do outro*/
-    > div {
-        display: flex;
-        flex-direction: column;
-        margin-left: 16px;
-        line-height: 24px;    
-     /*Não precisamos colocar (>), pois já existe um grau de especificidade de dois níveis. Ex:
-                Profile > div > span*/    
-     span {
-        font-size: 14px;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
-     }
+    > h1 {
+    font-size: 2.4rem;
+    color: ${({ theme }) => theme.COLORS.SALMON};
+  }
+`;
 
-     strong {
-        font-size: 18px;
-        color: ${({ theme }) => theme.COLORS.WHITE};   
-     }
+export const Search = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 6.4rem;
+  flex-grow: 1;
+`;
+
+export const Profile = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  > img {
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 50%;
+  }
+
+  > div {
+    margin-right: 0.9rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+
+    height: 4rem;
+
+    strong {
+      color: ${({ theme }) => theme.COLORS.WHITE};
     }
+  }
 `;
 
 export const Logout = styled.button`
-    border:none;
-    background:none;
+  border: none;
+  background: none;
 
-    > svg {
-      color: ${({ theme }) => theme.COLORS.ORANGE};
-      font-size: 38px;
-    }
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
+
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+
+  position: absolute;
+  bottom: 3.8rem;
+  right: 19.6rem;
 `;

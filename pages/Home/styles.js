@@ -1,160 +1,61 @@
-<<<<<<< HEAD
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: 105px 128px auto 64px;
-  grid-template-areas: 
-  "brand header"
-  "menu search"
-  "menu content"
-  "newnote content";
+  grid-template-rows: 11.6rem auto;
+  grid-template-areas:
+    "header"
+    "content";
 
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-`;
+  > main {
+    grid-area: content;
 
-export const Brand = styled.div`
-  grid-area: brand;
+    width: 100%;
+    max-width: 113.7rem;
+    margin: 4.8rem auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+      margin-bottom: 3.8rem;
 
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-
-  > h1 {
-    font-size: 24px;
-    color: ${({ theme }) => theme.COLORS.ORANGE};
+      h1 {
+        font-weight: 400;
+      }
+    }
   }
-`;
-
-export const Menu = styled.ul`
-  grid-area: menu;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-  padding-top: 64px;
-  text-align: center;
-
-  > li {
-    margin-bottom: 24px;
-  }
-`;
-
-export const Search = styled.div`
-  grid-area: search;
-
-  padding:64px 64px 0;
- 
 `;
 
 export const Content = styled.div`
-  grid-area: content;
+  max-height: calc(100vh - 29.7rem);
+  overflow-y: auto;
 
-  padding: 0 64px;
-  overflow-y: auto;// no modo auto só aparecerá a barra de rolagem na vertical quando precisar, ou quando tiver bastante conteúdo na página
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.SALMON};
+    border-radius: 0.8rem;
+  }
 `;
 
-export const NewNote = styled.button`
-  grid-area: newnote;
-
-  background-color: ${({ theme }) => theme.COLORS.ORANGE};
-  
-  border:none;
+export const NewMovie = styled(Link)`
+  background-color: ${({ theme }) => theme.COLORS.SALMON};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  border: none;
 
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  svg {
-    margin-right: 16px;
-    
-  }
- 
-=======
-import styled from 'styled-components';
-
-export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-
-  display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: 105px 128px auto 64px;
-  grid-template-areas: 
-  "brand header"
-  "menu search"
-  "menu content"
-  "newnote content";
-
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-`;
-
-export const Brand = styled.div`
-  grid-area: brand;
-
-  display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 0.8rem;
 
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-
-  > h1 {
-    font-size: 24px;
-    color: ${({ theme }) => theme.COLORS.ORANGE};
-  }
-`;
-
-export const Menu = styled.ul`
-  grid-area: menu;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-  padding-top: 64px;
-  text-align: center;
-
-  > li {
-    margin-bottom: 24px;
-  }
-`;
-
-export const Search = styled.div`
-  grid-area: search;
-
-  padding:64px 64px 0;
- 
-`;
-
-export const Content = styled.div`
-  grid-area: content;
-
-  padding: 0 64px;
-  overflow-y: auto;// no modo auto só aparecerá a barra de rolagem na vertical quando precisar, ou quando tiver bastante conteúdo na página
-`;
-
-export const NewNote = styled.button`
-  grid-area: newnote;
-
-  background-color: ${({ theme }) => theme.COLORS.ORANGE};
-  
-  border:none;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  svg {
-    margin-right: 16px;
-    
-  }
- 
->>>>>>> f707860f216b5e0c4ff5a3b339bc02f6fb8ce508
+  padding: 1.35rem 3.2rem;
+  border-radius: 0.8rem;
 `;

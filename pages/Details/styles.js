@@ -1,114 +1,93 @@
-<<<<<<< HEAD
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 11.6rem auto;
+  grid-template-areas:
+    "header"
+    "content";
+
+  > main {
+    grid-area: content;
+    overflow-y: auto;
+
     width: 100%;
-    height: 100vh;
+    max-width: 113.7rem;
+    margin: 4rem auto;
 
-    display: grid;
-    
-    grid-template-rows: 105px auto;
-    grid-template-areas: 
-        "header"
-        "content";
-    
-    > main {
-      grid-area: content;
-      overflow-y: scroll;
-      padding: 64px 0;
-    }
-`;
+    header {
+      display: flex;
+      flex-direction: column;
 
-export const Links = styled.ul`
-    list-style: none;
+      margin-bottom: 4rem;
 
-    > li {
-        margin-top: 12px;
-                  
-             
-      a {
-        color: ${({ theme }) => theme.COLORS.WHITE};
+      button {
+        background: none;
+        border: none;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      .movie-info {
+        gap: 0.8rem;
+        margin-top: 2.4rem;
+
+        p:nth-child(1),
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+        }
+
+        img {
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 50%;
+        }
+
+        svg {
+          color: ${({ theme }) => theme.COLORS.SALMON};
+        }
+      }
+
+      h1 {
+        font-weight: 500;
+        font-size: 3.6rem;
+        margin-right: 1.9rem;
       }
     }
-`;
 
-export const Content = styled.div`
-  max-width: 550px;
-  margin: 0 auto;
+    > p {
+      text-align: justify;
+      color: ${({ theme }) => theme.COLORS.WHITE};
 
-  display: flex;
-  flex-direction: column;  
+      margin-top: 4rem;
+      max-width: calc(100% - 0.8rem);
 
-  > button:first-child {
-    align-self: end;
-  }
-
-  > h1 {
-    font-size: 36px;
-    font-weight: 500px;
-    padding-top: 64px;
-  }
-
-  > p {
-    font-size: 18px;
-    margin-top: 16px;
-    text-align: justify;
-  }
-=======
-import styled from 'styled-components'
-
-export const Container = styled.div`
-    width: 100%;
-    height: 100vh;
-
-    display: grid;
-    
-    grid-template-rows: 105px auto;
-    grid-template-areas: 
-        "header"
-        "content";
-    
-    > main {
-      grid-area: content;
-      overflow-y: scroll;
-      padding: 64px 0;
+      line-height: 2.1rem;
     }
-`;
 
-export const Links = styled.ul`
-    list-style: none;
+    button {
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+      color: ${({ theme }) => theme.COLORS.PINK};
 
-    > li {
-        margin-top: 12px;
-                  
-             
-      a {
-        color: ${({ theme }) => theme.COLORS.WHITE};
-      }
+      width: calc(50% - 2rem);
+      margin-top: 4rem;
     }
-`;
-
-export const Content = styled.div`
-  max-width: 550px;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;  
-
-  > button:first-child {
-    align-self: end;
   }
 
-  > h1 {
-    font-size: 36px;
-    font-weight: 500px;
-    padding-top: 64px;
+  > main::-webkit-scrollbar {
+    width: 0.8rem;
   }
 
-  > p {
-    font-size: 18px;
-    margin-top: 16px;
-    text-align: justify;
+  > main::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.SALMON};
+    border-radius: 0.8rem;
   }
->>>>>>> f707860f216b5e0c4ff5a3b339bc02f6fb8ce508
 `;

@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
-import backgroundImg from '../../assets/background.png';
+import background from '../../assets/background.png';
 
 export const Container = styled.div`
     height: 100vh;
 
     display: flex;
     align-items: stretch;
-    
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     padding: 0 136px;
 
     display: flex;
@@ -20,32 +19,32 @@ export const Form = styled.div`
 
     text-align: center;
     
-    > h1 {
-        font-size:48px;
-        color: ${({ theme }) => theme.COLORS.ORANGE};
-    
+    > h1 { //RocketFilms
+        font-size: 48px;
+        color: ${({ theme }) => theme.COLORS.SALMON};
     }
 
-    > h2 {
+    > h2 { //Crie sua Conta
         font-size: 24px;
-        margin-top: 64px;
-        margin-bottom: 24px;
+        margin: 48px 0;
+        margin-right: 118px;
+        color: ${({ theme }) => theme.COLORS.WHITE};
     }
 
-    > p {
+    > p { // Aplicação para...
         font-size: 14px;
         color: ${({ theme }) => theme.COLORS.GRAY_100};
     }
 
-    > a {
+    > a {// Criar Conta
         margin-top: 124px;
-        color: ${({ theme }) => theme.COLORS.ORANGE};
+        color: ${({ theme }) => theme.COLORS.SALMON};
     }
 `;
 
 
-export const background = styled.div`
+export const Background = styled.div`
     flex: 1; //Ocupa todo o espaço disponível
-    background: url (${backgroundImg}) no-repeat center center;
+    background: url(${background}) no-repeat center center;
     background-size: cover;
 `;
